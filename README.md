@@ -1,5 +1,3 @@
-## P12y Portfolio
-
 Personal portfolio site built with React, Styled Components and React Spring.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), so has all the usual scripts available.
