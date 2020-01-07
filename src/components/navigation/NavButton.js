@@ -29,6 +29,7 @@ const IconButton = styled(NavigationButtonBase)`
 `;
 
 function NavButton({ icon, onClick }) {
+  console.log("log: icon", icon)
   return (
     <IconButton onClick={onClick}>
       <HoverCircle>

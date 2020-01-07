@@ -8,14 +8,13 @@ import Container from '../styled/Container';
 import logo1 from 'images/logos/firebase.png';
 import logo2 from 'images/logos/gcp.png';
 import logo3 from 'images/logos/git.png';
-import logo4 from 'images/logos/jest.png';
 import logo5 from 'images/logos/material-ui.png';
 import logo6 from 'images/logos/node.png';
 import logo7 from 'images/logos/react.png';
 import logo8 from 'images/logos/ts.png';
 import ToolCard from './ToolCard';
 
-const favTools = [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8];
+const favTools = [logo1, logo2, logo3, logo5, logo6, logo7, logo8];
 
 const Section = styled.div`
   width: auto;
@@ -73,10 +72,10 @@ const Favorite = styled.img`
 `;
 
 function Tools() {
-  const languages = ['JavaScript', 'HTML & CSS', 'Ruby'];
-  const frameworks = ['React', 'Vue', 'Express', 'Rails'];
-  const databases = ['MongoDB', 'PostgreSQL', 'Firebase'];
-  const testing = ['Jest', 'Enzyme', 'Mocha', 'Chai'];
+  const languages = ['JavaScript', 'HTML & CSS', 'Graph Ql' ];
+  const frameworks = ['React Js', 'React Native', 'Next Js', 'Express Js'];
+  const databases = ['MongoDB', 'Firebase', 'MsSql'];
+  const testing = ['Jest', 'Enzyme', 'React Testing Library'];
   const cards = [
     { title: 'Languages', tools: languages },
     { title: 'Frameworks', tools: frameworks },

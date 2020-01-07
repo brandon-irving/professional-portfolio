@@ -4,10 +4,10 @@
 export default [
   {
     avatar: '',
-    name: 'James Cotti',
-    position: 'Digital lead',
-    company: 'Sky',
+    name: 'Dominic Gozza',
+    position: 'Senior Developer',
+    company: 'PeakActivity',
     text:
-      'During Peter’s time at Sky Works he was instrumental in transforming our Digital offering to the wider Sky business. Through his involvement in the evolution of Sky’s DCO solution as well his work on innovation/efficiency projects Peter has grown as a developer and shown he is capable of delivering complex solutions adding value along the way. Accompanied by Peter’s can-do/positive attitude he is an asset to any business.',
+      'Its a joy working with someone like Brandon. Always willing to help, answer questions and makes himself available for anyone. He was absolutely pivotal to Uptime-Solutions Web App',
   },
 ];

@@ -8,6 +8,7 @@ import {
   faLevelDownAlt,
   faTimes,
   faExternalLinkAlt,
+  faHome,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -18,6 +19,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 library.add(
+  faHome,
   faLaptopCode,
   faToolbox,
   faPaperPlane,

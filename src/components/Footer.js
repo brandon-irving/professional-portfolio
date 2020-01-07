@@ -51,7 +51,7 @@ function Footer() {
             </Link>
           ))}
         </Links>
-        <p>Peter Tyldesley &copy; 2019</p>
+        <p>Brandon Irving &copy; 2020</p>
       </FooterItems>
     </Background>
   );

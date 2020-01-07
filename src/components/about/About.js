@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Waypoint } from 'react-waypoint';
 import media from 'styles/media';
-import NudgeText from '../NudgeText';
+// import NudgeText from '../NudgeText';
 import NameModal from '../NameModal';
 import DownArrow from './DownArrow';
 
@@ -43,26 +43,26 @@ const Stripes = styled.div`
   position: relative;
   ${Stripe}:nth-child(1) {
     grid-column: span 3;
-    background: linear-gradient(to right, #ffedbc, #ed4264);
+    background: linear-gradient(to right, #ffedbc, #2b83f6);
     transform: skewY(-12deg);
     transform-origin: 0;
   }
   ${Stripe}:nth-child(2) {
     grid-area: 2 / span 3 / auto / -1;
-    background: linear-gradient(to right, #b6fbff, #83a4d4);
+    background: linear-gradient(to right, #b6fbff, #2bc7f6);
     transform: skewY(12deg);
     transform-origin: 0;
   }
   ${Stripe}:nth-child(3) {
     grid-row: 4;
     grid-column: span 3;
-    background: linear-gradient(to right, #d7dde8, #757f9a);
+    background: linear-gradient(to right, #d7dde8, #2bc7f6);
     transform: skewY(-12deg);
     transform-origin: 0;
   }
   ${Stripe}:nth-child(4) {
     grid-area: 4 / span 3 / auto / -1;
-    background: linear-gradient(to right, #ffffff, #ef3b36);
+    background: linear-gradient(to right, #ffffff, #2b83f6);
     transform: skewY(12deg);
     transform-origin: 0;
   }
@@ -74,7 +74,7 @@ const H1 = styled.h1`
 
 function About() {
   const [arrowVisible, setArrowVisible] = useState(true);
-  const [nudgeNeeded, setNudgeNeeded] = useState(true);
+  // const [nudgeNeeded, setNudgeNeeded] = useState(true);
   const [nameModalOpen, setNameModalOpen] = useState(false);
 
   return (
@@ -87,14 +87,14 @@ function About() {
           <Stripe />
         </Stripes>
       </Background>
-      {nudgeNeeded && (
+      {/* {nudgeNeeded && (
         <NudgeText
           onClick={() => {
             setNudgeNeeded(false);
             setNameModalOpen(true);
           }}
         />
-      )}
+      )} */}
       <Container id="about">
         <TextContainer>
           <Waypoint
@@ -103,9 +103,9 @@ function About() {
             }}
           />
           <H1>
-            I’m <ColorSpan>Peter Tyldesley</ColorSpan>, full-stack developer,
+            <ColorSpan>Brandon J. Irving</ColorSpan>: full-stack Engineer 🖥️,
             <br />
-            full-time tinkerer and creator of things. 👊
+            React Js Enthusiast 🔥, Javascript Specialist 💪
           </H1>
         </TextContainer>
       </Container>

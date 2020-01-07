@@ -38,7 +38,7 @@ function CallToAction() {
         <GradientButton
           inverted
           text="email me"
-          href="mailto:ptylde@gmail.com"
+          href="mailto:birvingfau@gmail.com"
           icon="paper-plane"
           target="_top"
         />

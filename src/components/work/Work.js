@@ -42,11 +42,13 @@ function Work() {
     <Container id="work">
       <Title text="Work" />
       <WorkInfo>
-        My journey as a web developer started over 4 years ago. Since then, I've had the opportunity to work on many interesting projects.
-        I've created full-stack applications from the ground up, built APIs and CLIs using Node and worked with a number of front-end JS frameworks, including React, Vue and Angular.
-        I'm always trying to improve efficiency in the workplace and have built Chrome extensions and browser automation tools to improve workflows for myself and the team.
+       Thanks to PeakActivity, i've had the opportunity to work on many projects. This gained me tons of experience. I've used React Js to build 
+       responsive and reusable components, along with the context api to create custom hooks that abstracts business logic into reusable components. I've used html5
+       and css (as well as css libraries such as bootstrap and material) to make the components look visually pleasing. For the backend, i've primarily
+       used Node js/Express, to create api endpoints, handle authentication, etc. The databases i've gotten to work with are MongoDb, FireBase and MsSql.
+
       </WorkInfo>
-      <WorkInfo as="h4">Check out some recent projects:</WorkInfo>
+      <WorkInfo as="h4">Here are some projects:</WorkInfo>
       <Grid>
         {workItems.map(project => (
           <WorkCard
@@ -59,7 +61,7 @@ function Work() {
         <GradientButton
           icon={['fab', 'github']}
           text="view more on github"
-          href="https://github.com/p12y?tab=repositories"
+          href="https://github.com/brandon-irving?tab=repositories"
         >
         </GradientButton>
       </ViewMoreContainer>

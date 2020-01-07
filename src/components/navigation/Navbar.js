@@ -4,6 +4,7 @@ import Ink from 'react-ink';
 import media from 'styles/media';
 import NavigationButtonBase from 'components/styled/NavigationButtonBase';
 import NavButton from './NavButton';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -37,7 +38,7 @@ function Navbar() {
     <Wrapper>
       <HomeButton onClick={handleClick('about')}>
         <Ink />
-        P12y
+        <FontAwesomeIcon style={{fontSize: '1.5rem'}} icon="home"/>
       </HomeButton>
       <NavButton icon="toolbox" onClick={handleClick('tools')} />
       <NavButton icon="laptop-code" onClick={handleClick('work')} />
