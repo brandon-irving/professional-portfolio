@@ -42,11 +42,12 @@ function Work() {
     <Container id="work">
       <Title text="Work" />
       <WorkInfo>
-       Thanks to PeakActivity, i've had the opportunity to work on many projects. This gained me tons of experience. I've used React Js to build 
-       responsive and reusable components, along with the context api to create custom hooks that abstracts business logic into reusable components. I've used html5
-       and css (as well as css libraries such as bootstrap and material) to make the components look visually pleasing. For the backend, i've primarily
-       used Node js/Express, to create api endpoints, handle authentication, etc. The databases i've gotten to work with are MongoDb, FireBase and MsSql.
-
+       Thanks to PeakActivity, i've had the opportunity to work on several successful enterprise applications. I've either architected or assisted in
+       building scalable, performant and reliable apps. Utilizing the some of the leading technologies at the time! Using React js i 
+       built modular, clean and reusable UI components. To make the components look gorgeous, i used JSX, CSS, SASS or my personal favorite Styled-Components.
+       I've also had the opportunity to create Restful API services using Node Js. Authenticating api calls with JWT and encryption handled using Bcrypt.
+       Ive worked with plenty of databases, MongoDb, PostGress, MsSql, MySql, Firebase Firestore, etc. Im also familiar with graphQl and other querying languages used in the
+       listed databases
       </WorkInfo>
       <WorkInfo as="h4">Here are some projects:</WorkInfo>
       <Grid>

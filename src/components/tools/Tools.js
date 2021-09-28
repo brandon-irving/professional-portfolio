@@ -72,13 +72,13 @@ const Favorite = styled.img`
 `;
 
 function Tools() {
-  const languages = ['JavaScript', 'HTML & CSS', 'Graph Ql' ];
+  const languages = ['JavaScript', 'Python', 'Html & Css'];
   const frameworks = ['React Js', 'React Native', 'Next Js', 'Express Js'];
-  const databases = ['MongoDB', 'Firebase', 'MsSql'];
-  const testing = ['Jest', 'Enzyme', 'React Testing Library'];
+  const databases = ['MongoDB', 'Firebase', 'MsSql', 'MySql', 'PostGres'];
+  const testing = ['Jest', 'Enzyme', 'React Testing Library', 'Cypress'];
   const cards = [
     { title: 'Languages', tools: languages },
-    { title: 'Frameworks', tools: frameworks },
+    { title: 'Frameworks & Libraries ', tools: frameworks },
     { title: 'Databases', tools: databases },
     { title: 'Testing', tools: testing },
   ];

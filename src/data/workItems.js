@@ -14,6 +14,7 @@ const numImages = {
   'family-feud': 3,
   haunted: 2,
   city:2,
+  portfolio: 1,
 };
 
 /**
@@ -64,5 +65,13 @@ export default [
     images: generateImages('haunted'),
     githubUrl: 'https://brandon-irving.github.io/Haunted-Portfolio/',
     tags: ['React', 'Context Api', 'REST Api', 'Styled Components'],
+  },
+  {
+    projectTitle: 'This Portfolio!',
+    projectInfo: 'This web app was made using pure React. It highlights some modern design skills, clean code and best practices. Performant, clean and quick, just as a web app should be! along with light and dark theming!',
+    background: 'linear-gradient(to right, #6dd5ed, #2193b0)',
+    images: generateImages('portfolio'),
+    githubUrl: 'https://brandon-irving.github.io/',
+    tags: ['React', 'Context Api', 'Modularity', 'Clean Code','Styled Components'],
   },
 ];
