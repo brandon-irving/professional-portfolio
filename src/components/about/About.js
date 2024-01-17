@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Waypoint } from 'react-waypoint';
-import media from 'styles/media';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { Waypoint } from "react-waypoint";
+import media from "styles/media";
 // import NudgeText from '../NudgeText';
-import NameModal from '../NameModal';
-import DownArrow from './DownArrow';
+import NameModal from "../NameModal";
+import DownArrow from "./DownArrow";
 
 const Container = styled.div`
   align-items: center;
@@ -14,8 +14,8 @@ const Container = styled.div`
 `;
 
 const TextContainer = styled.div`
-  color: ${props => props.theme.titleColor};
-  font-family: 'Space Mono', monospace;
+  color: ${(props) => props.theme.titleColor};
+  font-family: "Space Mono", monospace;
   margin-top: -5%;
   margin: 0 1.5em 0 1.5em;
   text-align: center;
@@ -99,13 +99,13 @@ function About() {
         <TextContainer>
           <Waypoint
             onPositionChange={({ currentPosition }) => {
-              setArrowVisible(currentPosition === 'inside');
+              setArrowVisible(currentPosition === "inside");
             }}
           />
           <H1>
-            <ColorSpan>Brandon J. Irving</ColorSpan>: full-stack Engineer 🖥️,
+            <ColorSpan>Brandon J. Irving</ColorSpan>: Full-Stack Engineer 🖥️,
             <br />
-            React Js Enthusiast 🔥, Javascript Specialist 💪
+            React Js Enthusiast 🔥, Javascript Hero 💪
           </H1>
         </TextContainer>
       </Container>

@@ -1,9 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import Ink from 'react-ink';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import NavigationButtonBase from 'components/styled/NavigationButtonBase';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import Ink from "react-ink";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import NavigationButtonBase from "components/styled/NavigationButtonBase";
+import * as icons from "@fortawesome/free-solid-svg-icons";
 
 const HoverCircle = styled.div`
   cursor: pointer;
@@ -16,32 +17,31 @@ const HoverCircle = styled.div`
   width: 3.5rem;
   height: 3.5rem;
   &:hover {
-    background: ${props => props.theme.nav.hoverCircle};
+    background: ${(props) => props.theme.nav.hoverCircle};
   }
 `;
 
 const IconButton = styled(NavigationButtonBase)`
   font-size: 1.5rem;
-  background: ${props => props.theme.nav.background};
+  background: ${(props) => props.theme.nav.background};
   margin-top: 1rem;
   margin-bottom: 1rem;
-  color: ${props => props.theme.nav.icon};
+  color: ${(props) => props.theme.nav.icon};
 `;
 
 function NavButton({ icon, onClick }) {
-  console.log("log: icon", icon)
   return (
     <IconButton onClick={onClick}>
       <HoverCircle>
         <Ink />
-        <FontAwesomeIcon icon={icon} />
+        <FontAwesomeIcon icon={icons[icon] || icon} />
       </HoverCircle>
     </IconButton>
   );
 }
 
 NavButton.propTypes = {
-  icon: PropTypes.oneOfType([PropTypes.array, PropTypes.string]).isRequired,
+  icon: PropTypes.string.isRequired,
   onClick: PropTypes.func,
 };
 

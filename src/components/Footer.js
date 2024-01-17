@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import links from 'data/footerLinks';
+import React from "react";
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import links from "data/footerLinks";
 
 const Background = styled.div`
   background: ${({ theme }) => theme.nav.background};
@@ -21,7 +21,7 @@ const Link = styled.a`
   cursor: pointer;
   margin: 0.5em;
   text-decoration: none;
-  transition: color .2s ease-in-out;
+  transition: color 0.2s ease-in-out;
   &:hover {
     color: var(--primary);
   }
@@ -40,18 +40,18 @@ function Footer() {
     <Background>
       <FooterItems>
         <Links>
-          {links.map(link => (
+          {links.map((link) => (
             <Link
               key={link.icon}
               href={link.href}
               target="_blank"
               rel="noopener"
             >
-              <FontAwesomeIcon icon={['fab', link.icon]} />
+              <FontAwesomeIcon icon={["fab", link.icon]} />
             </Link>
           ))}
         </Links>
-        <p>Brandon Irving &copy; 2020</p>
+        <p>Brandon Irving &copy; {new Date().getFullYear()}</p>
       </FooterItems>
     </Background>
   );

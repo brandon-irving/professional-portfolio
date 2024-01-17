@@ -1,8 +1,13 @@
-const generateImages = appName => {
+const generateImages = (appName) => {
   const images = [];
   for (let i = 1; i <= numImages[appName]; i += 1) {
+    let fileType = "png";
+    const isJpegs = ["nani"];
+    if (isJpegs.includes(appName)) {
+      fileType = "jpeg";
+    }
     images.push({
-      original: require(`images/screenshots/${appName}/${i}.png`),
+      original: require(`images/screenshots/${appName}/${i}.${fileType}`),
     });
   }
   return images;
@@ -10,68 +15,114 @@ const generateImages = appName => {
 
 const numImages = {
   uptime: 4,
+  nani: 4,
   youfit: 2,
-  'family-feud': 3,
-  haunted: 2,
-  city:2,
-  portfolio: 1,
+  city: 2,
+  altruist: 2,
+  altruistMobile: 2,
 };
 
 /**
  * List of portfolio work items to be displayed
  */
+const techsUsed = {
+  react: "React Js",
+  reactNative: "React Native",
+  nextJs: "Next Js",
+  typescript: "Typescript",
+  nodeJs: "Node Js",
+  gitlab: "GitLab",
+  sentry: "Sentry",
+  dataDog: "Datadog",
+  awsLambda: "AWS Lambda",
+  python: "Python",
+  jenkins: "Jenkins",
+  graphQl: "GraphQl",
+  mySql: "MySql",
+  azure: "Microsoft Azure",
+  gatsby: "Gatsby Js",
+};
+
 export default [
   {
-    projectTitle: 'Uptime',
-    projectInfo:
-      'Uptime is a machine analysis app. Sensors are placed on various machines, data is sampled, recorded and sent to a MsSql database. The backend is composed of Node js and the front end components is made from React Js. Bootstrap is the css framework and jest and enzyme is used for testing.',
-    background: 'linear-gradient(to right, #6dd5ed, #2193b0)',
-    images: generateImages('uptime'),
-    tags: ['React', 'Context Api', 'REST Api','Node Js', 'MsSql', 'Bootstrap', 'Sql', 'Google Cloud', 'Sequelize'],
+    projectTitle: "Nani!?  Charades Game",
+    appUrl: "https://apps.apple.com/az/app/nani/id1622545048",
+    projectInfo: `A game truly for the fans! Come play charades as you've never played before. First select from one of our fandom-themed decks, read the play type, and let the fun begin! Mime, act, dance, or sing your way to victory and prove to your friends who is the biggest fan. The first app i released under my name`,
+    background: "linear-gradient(to right, #6dd5ed, #2193b0)",
+    images: generateImages("nani"),
+    tags: [
+      techsUsed.reactNative,
+      techsUsed.nodeJs,
+      techsUsed.typescript,
+      techsUsed.sentry,
+      techsUsed.gitlab,
+    ],
+  },
+  {
+    projectTitle: "Altruist Web App",
+    appUrl: "https://altruist.com/",
+    projectInfo: `An all in one financial custodial platform. I lead the "Match" initiative (a sister app used for helping users find the advisor that matches their specific needs), the launch of several new account types on the platform and several other key features. I've architected, interviewed, performed ADRs and more.`,
+    background: "linear-gradient(to right, #6dd5ed, #2193b0)",
+    images: generateImages("altruist"),
+    tags: [
+      techsUsed.react,
+      techsUsed.nodeJs,
+      techsUsed.typescript,
+      techsUsed.dataDog,
+      techsUsed.graphQl,
+      techsUsed.awsLambda,
+    ],
+  },
+  {
+    projectTitle: "Altruist Mobile App",
+    appUrl: "https://altruist.com/client-experience/",
+    projectInfo: `An all in one financial custodial platform. I lead the "Match" initiative (a sister app used for helping users find the advisor that matches their specific needs), the launch of several new account types on the platform and several other key features. I've architected, interviewed, performed ADRs and more.`,
+    background: "linear-gradient(to right, #6dd5ed, #2193b0)",
+    images: generateImages("altruistMobile"),
+    tags: [
+      techsUsed.reactNative,
+      techsUsed.sentry,
+      techsUsed.graphQl,
+      techsUsed.gitlab,
+    ],
   },
 
   {
-    projectTitle: 'City Furniture',
+    projectTitle: "Uptime",
     projectInfo:
-      'A popular south florida furniture store. Made in React js, Node/express, typescript and context',
-    background: 'linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5)',
-    appUrl: 'https://cityfurniture.com/',
-    images: generateImages('city'),
-    tags: ['React', 'Node js', 'Express', 'Amazon Web Services'],
+      "Uptime is a machine analysis app. Sensors are placed on various machines, data is sampled, recorded and sent to a MsSql database. The backend is composed of Node js and the front end components is made from React Js. Bootstrap is the css framework and jest and enzyme is used for testing.",
+    background: "linear-gradient(to right, #6dd5ed, #2193b0)",
+    images: generateImages("uptime"),
+    tags: [
+      techsUsed.react,
+      techsUsed.typescript,
+      techsUsed.nodeJs,
+      techsUsed.python,
+    ],
   },
-  {
-    projectTitle: 'YouFit',
-    projectInfo:
-      'A national gym franchise website, made using Gatsby js, React and Graph Ql',
-    appUrl: 'https://youfit.com/',
-    background: 'linear-gradient(to right, #0083B0, #00B4DB)',
-    images: generateImages('youfit'),
 
-    tags: ['Gatsby Js', 'React', 'MongoDB', 'Graph Ql'],
-  },
   {
-    projectTitle: 'Family Feud',
+    projectTitle: "City Furniture",
     projectInfo:
-      'Family Feud replica made during the holidays to play with my siblings. The app has sounds, music, point storing and point stealing capabilities. There is also an associated mobile version for the app, that acts as a answer repository for whoever is the games host. This was built with React js and global state is managed using context. The questions and answers are recieved via REST api calls',
-    background: 'linear-gradient(to right, #6dd5ed, #2193b0)',
-    images: generateImages('family-feud'),
-    githubUrl: 'https://brandon-irving.github.io/irving-family-feud/',
-    tags: ['React', 'Context Api', 'REST Api', 'Styled Components'],
+      "A popular south florida furniture store. Made in React js, Node/express, typescript and context",
+    background: "linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5)",
+    appUrl: "https://cityfurniture.com/",
+    images: generateImages("city"),
+    tags: [
+      techsUsed.react,
+      techsUsed.typescript,
+      techsUsed.nodeJs,
+      techsUsed.azure,
+    ],
   },
   {
-    projectTitle: 'Haunted Portfolio',
-    projectInfo: 'A portfolio that behaves like a haunted terminal. This portfolio has multiple theming, context api used and implements custom glitching functionality',
-    background: 'linear-gradient(to right, #6dd5ed, #2193b0)',
-    images: generateImages('haunted'),
-    githubUrl: 'https://brandon-irving.github.io/Haunted-Portfolio/',
-    tags: ['React', 'Context Api', 'REST Api', 'Styled Components'],
-  },
-  {
-    projectTitle: 'This Portfolio!',
-    projectInfo: 'This web app was made using pure React. It highlights some modern design skills, clean code and best practices. Performant, clean and quick, just as a web app should be! along with light and dark theming!',
-    background: 'linear-gradient(to right, #6dd5ed, #2193b0)',
-    images: generateImages('portfolio'),
-    githubUrl: 'https://brandon-irving.github.io/',
-    tags: ['React', 'Context Api', 'Modularity', 'Clean Code','Styled Components'],
+    projectTitle: "YouFit",
+    projectInfo:
+      "A national gym franchise website, made using Gatsby js, React and Graph Ql",
+    appUrl: "https://youfit.com/",
+    background: "linear-gradient(to right, #0083B0, #00B4DB)",
+    images: generateImages("youfit"),
+
+    tags: [techsUsed.react, techsUsed.typescript, techsUsed.gatsby],
   },
 ];

@@ -1,16 +1,15 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import ImageGallery from 'react-image-gallery';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useSpring, animated, config } from 'react-spring';
-import { Transition } from 'react-spring/renderprops.cjs';
-import media from 'styles/media';
-import 'react-image-gallery/styles/css/image-gallery.css';
-import './imageGalleryOverrides.css';
-import Tag from 'components/styled/Tag';
-import useCloseDialog from 'hooks/useCloseDialog';
-import LoadingSpinner from './LoadingSpinner';
+import React, { useState, useEffect, useCallback } from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import ImageGallery from "react-image-gallery";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSpring, animated, config, Transition } from "react-spring";
+import media from "styles/media";
+import "react-image-gallery/styles/css/image-gallery.css";
+import "./imageGalleryOverrides.css";
+import Tag from "components/styled/Tag";
+import useCloseDialog from "hooks/useCloseDialog";
+import LoadingSpinner from "./LoadingSpinner";
 
 const Overlay = styled(animated.div)`
   height: 100%;
@@ -25,7 +24,7 @@ const Overlay = styled(animated.div)`
 
 const OverlayBackground = styled.div`
   background: #2bc0e4; /* fallback for old browsers */
-  background: ${props => props.background};
+  background: ${(props) => props.background};
   height: 100%;
   left: 0;
   opacity: 0.95;
@@ -35,11 +34,11 @@ const OverlayBackground = styled.div`
   webkit-tap-highlight-color: transparent;
   width: 100%;
   &::before {
-    background-color: ${props => props.theme.background};
-    content: '';
+    background-color: ${(props) => props.theme.background};
+    content: "";
     display: block;
     height: 100%;
-    opacity: ${props => (props.theme.mode === 'dark' ? 0.7 : 0)};
+    opacity: ${(props) => (props.theme.mode === "dark" ? 0.7 : 0)};
     position: absolute;
     width: 100%;
   }
@@ -47,10 +46,11 @@ const OverlayBackground = styled.div`
 
 const Container = styled.div`
   display: grid;
-  grid-template-areas: 'images info';
+  grid-template-areas: "images info";
   grid-template-columns: 50% 50%;
   height: 100%;
   position: relative;
+  padding: 20px;
   ${media.tablet`
     grid-template-areas: "info" "images";
     grid-template-columns: 100%;
@@ -103,7 +103,7 @@ const UrlSection = styled.p`
 const Link = styled.a`
   color: white;
   text-decoration: none;
-  margin-right: 0.5em;
+  margin-right: 2.5em;
   margin-left: 0.5em;
   font-size: 1.6em;
   transition: color 0.2s ease-in-out;
@@ -115,18 +115,17 @@ const Link = styled.a`
 const ExitButton = styled(animated.div)`
   color: white;
   cursor: pointer;
-  font-size: 2em
+  font-size: 2em;
   margin: 1em;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 10px;
   z-index: 3;
 `;
 
 const Tags = styled.p`
   text-align: center;
 `;
-
 function WorkModal({ toggleModalOpen, open, project }) {
   const [imagesLoaded, setImagesLoaded] = useState(false);
   useCloseDialog({ open, onClose: toggleModalOpen });
@@ -135,106 +134,63 @@ function WorkModal({ toggleModalOpen, open, project }) {
     setImagesLoaded(false);
   }, [project, open]);
 
-  const sharedSpringProps = {
-    immediate: open ? false : true,
-    opacity: open ? 1 : 0,
-    transform: open ? 'scale(1)' : 'scale(0.5)',
-    scale: open ? 1 : 0,
-    config: config.gentle,
-  };
+  const onImageLoad = useCallback(() => {
+    let count = 0;
+    return () => {
+      count += 1;
+      if (count === project.images.length) {
+        setImagesLoaded(true);
+      }
+    };
+  }, [project]);
 
-  const textSpringProps = useSpring({
-    ...sharedSpringProps,
-    config: config.gentle,
-    delay: 200,
-  });
-
-  const imageSpringProps = useSpring({
-    ...sharedSpringProps,
-    config: config.default,
-  });
-
-  const exitSpringProps = useSpring({
-    ...sharedSpringProps,
-    transform: open ? 'scale(1)' : 'scale(0)',
-    config: config.gentle,
-  });
-
-  const onImageLoad = useCallback(
-    (() => {
-      let count = 0;
-      return () => {
-        count += 1;
-        if (count === project.images.length) {
-          setImagesLoaded(true);
-        }
-      };
-    })(),
-    [project, open]
-  );
+  if (!open) return null;
 
   return (
-    <Transition
-      config={{ duration: 100 }}
-      items={open}
-      from={{ opacity: 0 }}
-      enter={{ opacity: 1 }}
-      leave={{ opacity: 0 }}
-    >
-      {open =>
-        open &&
-        (props => (
-          <Overlay style={{ ...props }}>
-            <OverlayBackground background={project.background} />
-            <ExitButton onClick={toggleModalOpen} style={exitSpringProps}>
-              <FontAwesomeIcon icon="times" />
-            </ExitButton>
-            <Container>
-              <InfoContainer>
-                <TextContainer style={textSpringProps}>
-                  <Title>{project.projectTitle}</Title>
-                  <Info>{project.projectInfo}</Info>
-                  {project.appUrl && project.githubUrl && (
-                    <div>
-                      <UrlSection>
-                        <Link href={project.githubUrl} target="_blank">
-                          <FontAwesomeIcon icon={['fab', 'github']} />
-                        </Link>
-                        <Link href={project.appUrl} target="_blank">
-                          <FontAwesomeIcon icon="external-link-alt" />
-                        </Link>
-                      </UrlSection>
-                    </div>
-                  )}
-                </TextContainer>
-              </InfoContainer>
-              <ImagesContainer style={imageSpringProps}>
-                <LoadingSpinner loaded={imagesLoaded} />
-                <div
-                  style={{
-                    display: imagesLoaded ? 'block' : 'none',
-                  }}
-                >
-                  <ImageGallery
-                    onImageLoad={onImageLoad}
-                    items={project.images}
-                    showBullets={true}
-                    showThumbnails={false}
-                    showFullscreenButton={false}
-                    showPlayButton={false}
-                  />
-                  <Tags>
-                    {project.tags.map((tag, index) => (
-                      <Tag key={tag}>{tag}</Tag>
-                    ))}
-                  </Tags>
-                </div>
-              </ImagesContainer>
-            </Container>
-          </Overlay>
-        ))
-      }
-    </Transition>
+    <Overlay>
+      <OverlayBackground id="overlay" background={project.background} />
+      <ExitButton id="exit-button" onClick={toggleModalOpen}>
+        <FontAwesomeIcon icon="times" />
+      </ExitButton>
+      <Container id="container">
+        <InfoContainer id="info-container">
+          <TextContainer>
+            <Title>{project.projectTitle}</Title>
+            <Info>{project.projectInfo}</Info>
+            {project.appUrl && project.githubUrl && (
+              <div>
+                <UrlSection>
+                  <Link href={project.githubUrl} target="_blank">
+                    <FontAwesomeIcon icon={["fab", "github"]} />
+                  </Link>
+                  <Link href={project.appUrl} target="_blank">
+                    <FontAwesomeIcon icon="external-link-alt" />
+                  </Link>
+                </UrlSection>
+              </div>
+            )}
+          </TextContainer>
+        </InfoContainer>
+        <ImagesContainer id="image-container">
+          <LoadingSpinner loaded={imagesLoaded} />
+          <div style={{ display: imagesLoaded ? "block" : "none" }}>
+            <ImageGallery
+              onImageLoad={onImageLoad()}
+              items={project.images}
+              showBullets={true}
+              showThumbnails={false}
+              showFullscreenButton={false}
+              showPlayButton={false}
+            />
+            <Tags>
+              {project.tags.map((tag) => (
+                <Tag key={tag}>{tag}</Tag>
+              ))}
+            </Tags>
+          </div>
+        </ImagesContainer>
+      </Container>
+    </Overlay>
   );
 }
 

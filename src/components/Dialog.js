@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { Transition } from 'react-spring/renderprops.cjs';
-import useCloseDialog from 'hooks/useCloseDialog';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import useCloseDialog from "hooks/useCloseDialog";
+import { Transition } from "react-spring";
 
 const DialogBackground = styled.div`
   align-items: center;
@@ -43,11 +43,11 @@ function Dialog({ open, title, content, onClose }) {
       enter={{ opacity: 1 }}
       leave={{ opacity: 0 }}
     >
-      {open =>
+      {(open) =>
         open &&
-        (props => (
+        ((props) => (
           <DialogBackground onClick={onClose} style={props}>
-            <DialogContainer onClick={e => e.stopPropagation()}>
+            <DialogContainer onClick={(e) => e.stopPropagation()}>
               <DialogTitle>{title}</DialogTitle>
               <div>{content}</div>
             </DialogContainer>

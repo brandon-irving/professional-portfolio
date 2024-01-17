@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import Title from 'components/Title';
-import Container from 'components/styled/Container';
-import testimonials from 'data/testimonials';
+import React from "react";
+import styled from "styled-components";
+import Title from "components/Title";
+import Container from "components/styled/Container";
+import testimonials from "data/testimonials";
 
 const TestimonialsContainer = styled.div`
   color: ${({ theme }) => theme.titleColor};
@@ -25,6 +25,7 @@ const TestimonialText = styled.p`
   font-size: 1.2em;
   margin-bottom: 2em;
   margin-top: 2em;
+  white-space: break-spaces;
 `;
 
 const Name = styled.h3`
@@ -41,8 +42,8 @@ function Testimonials() {
     <Container>
       <Title text="Testimonials" />
       <TestimonialsContainer>
-        {testimonials.map(testimonial => (
-          <div style={{ paddingBottom: '3rem' }} key={testimonial.name}>
+        {testimonials.map((testimonial) => (
+          <div style={{ paddingBottom: "3rem" }} key={testimonial.name}>
             {testimonial.avatar && <Avatar />}
             <TestimonialText>"{testimonial.text}"</TestimonialText>
             <Name>{testimonial.name}</Name>

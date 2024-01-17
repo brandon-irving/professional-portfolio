@@ -1,24 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import Title from 'components/Title';
-import Container from 'components/styled/Container';
-import media from 'styles/media';
-import WorkCard from './WorkCard';
-import workItems from 'data/workItems';
-import GradientButton from 'components/GradientButton';
-
-const Grid = styled.div`
-  display: grid;
-  flex-wrap: wrap;
-  grid-gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
-  ${media.tablet`
-    grid-template-columns: repeat(auto-fit, minmax(60%, 1fr));
-  `}
-  ${media.phone`
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-  `}
-`;
+import React from "react";
+import styled from "styled-components";
+import Title from "components/Title";
+import Container from "components/styled/Container";
 
 const WorkInfo = styled.p`
   color: ${({ theme }) => theme.titleColor};
@@ -29,45 +12,31 @@ const WorkInfo = styled.p`
   text-align: center;
 `;
 
-const ViewMoreContainer = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  padding: 3rem;
-  padding-bottom: 0;
-`;
-
 function Work() {
   return (
     <Container id="work">
       <Title text="Work" />
       <WorkInfo>
-       Thanks to PeakActivity, i've had the opportunity to work on several successful enterprise applications. I've either architected or assisted in
-       building scalable, performant and reliable apps. Utilizing the some of the leading technologies at the time! Using React js i 
-       built modular, clean and reusable UI components. To make the components look gorgeous, i used JSX, CSS, SASS or my personal favorite Styled-Components.
-       I've also had the opportunity to create Restful API services using Node Js. Authenticating api calls with JWT and encryption handled using Bcrypt.
-       Ive worked with plenty of databases, MongoDb, PostGress, MsSql, MySql, Firebase Firestore, etc. Im also familiar with graphQl and other querying languages used in the
-       listed databases
+        As a seasoned Full Stack Engineer Team Lead with six years of
+        professional experience, I possess a comprehensive skill set and
+        hands-on understanding of the entire software development lifecycle. My
+        expertise lies in crafting robust, scalable, and performant front-end
+        systems using advanced technologies like React JS, Typescript, and
+        Next.js, while simultaneously developing efficient backend services
+        utilizing Node.js, GraphQL, and more.
+        <br />
+        <br />
+        Throughout my career, I have spearheaded multiple initiatives and led
+        teams to success in reputable companies such as Altruist, PeakActivity,
+        City Furniture, YouFit, Planet Fitness, and Uptime Solutions. My
+        proficiency lies in identifying innovative solutions, driving
+        initiatives forward, and delivering sophisticated software that meets
+        and exceeds expectations. I am committed to leveraging my expertise to
+        continue creating impactful software and leading teams towards achieving
+        exceptional results.
       </WorkInfo>
-      <WorkInfo as="h4">Here are some projects:</WorkInfo>
-      <Grid>
-        {workItems.map(project => (
-          <WorkCard
-            key={project.projectTitle}
-            project={project}
-          />
-        ))}
-      </Grid>
-      <ViewMoreContainer>
-        <GradientButton
-          icon={['fab', 'github']}
-          text="view more on github"
-          href="https://github.com/brandon-irving?tab=repositories"
-        >
-        </GradientButton>
-      </ViewMoreContainer>
     </Container>
   );
-};
+}
 
 export default Work;
